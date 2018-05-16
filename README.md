@@ -1,17 +1,16 @@
-
-
 <div align="center">
   <h1>Geluid</h1>
-<img src="https://raw.githubusercontent.com/kulek1/readmeimages/master/geluid.png">
+  <img src="https://raw.githubusercontent.com/kulek1/readmeimages/master/geluid.png" />
   <h3>Low latency streaming audio from soundcard directly to the browser.</h3>
   <p>Use on any desktop or mobile device.</p>
 </div>
 
-  <br>
-Application based on `Electron`, `React`, `React-Router`, `Webpack`, `Socket.io`, `PortAudio`, `Lame` and `WebRTC`.
-It combines advantages of those packages to create a nice looking application.
-  <h2>Usage</h2>
+<br/>
 
+Application based on `Electron`, `React`, `React-Router`, `Webpack`, `Socket.io`, `PortAudio Lame` and `WebRTC`.
+It combines advantages of those packages to create a nice looking application.
+
+## Usage
 > :warning: This application is still under development and it's not stable version.
 
 
