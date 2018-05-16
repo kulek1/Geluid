@@ -1,0 +1,94 @@
+.btn {
+  position: relative;
+  height: 50px;
+  padding-left: 50px;
+  padding-right: 50px;
+  border: 0;
+  border-radius: 10px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: #fff;
+  background-size: 250% 100% !important;
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+
+  &::before,
+  &::after {
+    content: '';
+    width: 100%;
+    height: 80%;
+    position: absolute;
+    top: 5px;
+    border-radius: 50px;
+    z-index: -1;
+    filter: blur(12px);
+    transition: height 0.3s ease-in-out;
+  }
+
+  &::before {
+    left: 5px;
+  }
+
+  &::after {
+    right: 5px;
+  }
+
+  &:hover, &:focus {
+    background-position: 50% 0 !important;
+    outline: 0;
+    
+    &::before,
+    &::after {
+      height: 90%;
+    }
+  }
+
+  &.btn-primary {
+    background-image: linear-gradient(
+      45deg,
+      $btn-primary-color1,
+      $btn-primary-color2
+    );
+
+    &::before {
+      background-image: linear-gradient(
+        90deg,
+        $btn-primary-shadow1,
+        transparent
+      );
+    }
+
+    &::after {
+      background-image: linear-gradient(
+        90deg,
+        transparent,
+        $btn-primary-shadow2
+      );
+    }
+  }
+
+  &.btn-secondary {
+    background-image: linear-gradient(45deg, $btn-secondary-color1, $btn-secondary-color2);
+
+    &::before {
+      background-image: linear-gradient(
+        90deg,
+        $btn-secondary-shadow1,
+        transparent
+      );
+    }
+
+    &::after {
+      background-image: linear-gradient(
+        90deg,
+        transparent,
+        $btn-secondary-shadow2
+      );
+    }
+  }
+
+  &.main-button {
+    margin-top: 80px;
+    height: 80px;
+  }
+}

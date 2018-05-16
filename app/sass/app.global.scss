@@ -1,0 +1,46 @@
+@import '~/roboto-fontface/css/roboto/roboto-fontface.css';
+@import 'variables';
+@import 'boxes';
+@import 'react-select';
+@import '../components/ActiveListeners';
+@import './audio-select';
+
+body {
+  position: relative;
+  color: black;
+  height: 100vh;
+  background-color: #FFF;
+  font-family: 'Roboto', Helvetica, Helvetica Neue, serif;
+  overflow: hidden;
+}
+
+.app-title {
+  margin: 0;
+  font-size: 1.25rem;
+  color: $color-gray;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: lighter;
+}
+
+p {
+  margin-top: 0;
+  margin-bottom: 0;
+  font-size: 0.75rem;
+  line-height: 1.25rem;
+}
+
+.main-header {
+  -webkit-app-region: drag;
+  height: 25px;
+}
+
+.container {
+  display: flex;
+}

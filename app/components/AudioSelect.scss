@@ -1,0 +1,20 @@
+@import '../sass/variables';
+
+.container {
+  width: 350px;
+
+  .heading {
+    margin-top: 50px;
+    margin-bottom: 25px;
+    color: $color-gray-thin;
+    font-size: 1rem;
+    text-align: center;
+  }
+}
+
+.circle-green {
+  background-color: $color-green;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}

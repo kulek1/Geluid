@@ -1,0 +1,168 @@
+.audio-player {
+  height: 80px;
+  box-shadow: 0 4px 16px 0 rgba(0, 0, 0, 0.07);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 24px;
+  padding-right: 24px;
+  border-radius: 4px;
+  user-select: none;
+  -webkit-user-select: none;
+  background-image: linear-gradient(to left, #3c4564, #354267);
+
+  &__play-btn {
+    position: relative;
+    z-index: 0;
+    cursor: pointer;
+
+    &::before {
+      content: '';
+      width: 100%;
+      height: 100%;
+      left: 0;
+      border-radius: 50%;
+      position: absolute;
+      z-index: -1;
+      filter: blur(10px);
+      background-image: linear-gradient(90deg, #7b81ec, transparent);
+    }
+
+    path {
+      fill: $btn-primary-color2;
+    }
+  }
+
+  .controls__slider {
+    display: flex;
+    position: relative;
+    margin-left: 16px;
+    margin-right: 16px;
+    border-radius: 2px;
+    height: 4px;
+    flex-grow: 1;
+    background-color: $slider-rail;
+    cursor: pointer;
+
+    &.slider-volume {
+      display: block;
+      position: relative;
+    }
+
+    .progress {
+      &.live {
+        width: 100%;
+        background-image: linear-gradient(
+          45deg,
+          $btn-primary-color1,
+          $btn-primary-color2
+        );
+        background-size: 300% 300%;
+        animation: dynamicBar 2s infinite;
+      }
+    }
+  }
+
+  &__controls {
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    line-height: 18px;
+    color: #55606e;
+    display: flex;
+    flex-grow: 1;
+    justify-content: space-between;
+    align-items: center;
+    margin-left: 24px;
+    margin-right: 24px;
+
+    span {
+      color: #8e96b5;
+      cursor: default;
+    }
+  }
+
+  &__volume {
+    display: flex;
+    align-items: center;
+    position: relative;
+
+    &-controls {
+      display: inline-block;
+      width: 100px;
+    }
+
+    .volume__btn {
+      margin-right: 10px;
+      cursor: pointer;
+
+      path {
+        fill: #8e96b5;
+      }
+
+      &.open path {
+        fill: #44bfa3;
+      }
+    }
+  }
+}
+
+// rc-slider
+
+.rc-slider {
+  height: $slider-height;
+  position: relative;
+
+  &-rail {
+    position: absolute;
+    width: 100%;
+    height: $slider-height;
+    border-radius: 6px;
+    background-color: $slider-rail;
+  }
+
+  &-track {
+    position: absolute;
+    left: 0;
+    height: 4px;
+    border-radius: 6px;
+    background-image: linear-gradient(
+      45deg,
+      $btn-primary-color1,
+      $btn-primary-color2
+    );
+  }
+
+  &-step {
+    position: absolute;
+    width: 100%;
+    height: 4px;
+    background: transparent;
+  }
+
+  &-handle {
+    position: absolute;
+    margin-left: -7px;
+    margin-top: -5px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    border: solid 2px $btn-primary-color2;
+    background-color: $btn-primary-color2;
+    box-shadow: 0px 1px 1px 0px rgba(0, 0, 0, 0.32);
+    -ms-touch-action: pan-x;
+    touch-action: pan-x;
+    cursor: pointer;
+  }
+}
+
+@keyframes dynamicBar { 
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}

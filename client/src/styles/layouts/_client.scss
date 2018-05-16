@@ -1,0 +1,14 @@
+.container__client {
+  .client__connect {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .client__player {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+  }
+}

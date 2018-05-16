@@ -1,0 +1,46 @@
+.box.box__listeners {
+  .listeners {
+    position: relative;
+    margin-top: 15px;
+    margin-bottom: 0;
+    height: 80px;
+    font-size: 3.25rem;
+    overflow: hidden;
+
+    &.animating {
+      .listeners__current {
+        transform: translateY(-68px);
+      }
+
+      .listeners__incoming {
+        visibility: visible;
+        transform: translateY(0px);
+      }
+
+      &.end {
+        .listeners__current {
+          transform: translateY(0px);
+        }
+
+        .listeners__incoming {
+          visibility: none;
+        }
+      }
+    }
+
+    &__current, &__incoming {
+      display: block;
+      position: absolute;
+      transition: transform .5s ease;
+    }
+
+    &__current {
+
+    }
+
+    &__incoming {
+      visibility: hidden;
+      transform: translateY(68px);
+    }
+  }
+}

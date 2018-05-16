@@ -1,0 +1,21 @@
+@import url('https://fonts.googleapis.com/css?family=Muli:300,400,600');
+
+* {
+  font-family: 'Muli', sans-serif;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background: radial-gradient(circle at top, #495473 0,#2a3352 70%);
+    background-repeat: no-repeat;
+    color: #fff;
+  }
+
+  body, html {
+    height: 100%;
+
+    > #root {
+      height: 100%;
+    }
+  }

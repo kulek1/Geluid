@@ -1,0 +1,38 @@
+@import '../sass/variables';
+
+.heading {
+  margin-top: 0;
+  margin-bottom: 0;
+  font-size: 1.75rem;
+}
+
+.divider {
+  height: 1px;
+  background-color: #48C131;
+  border: none;
+}
+
+.success {
+  background-color: $color-green;
+
+  .divider {
+    background-color: darken($color-green, 8%);
+  }
+}
+  
+.error {
+  background-color: $color-red;
+
+  .divider {
+    background-color: darken($color-red, 8%);
+  }
+}
+  
+.warning {
+  background-color: $color-orange;
+
+  .divider {
+    background-color: darken($color-orange, 10%);
+  }
+}
+
