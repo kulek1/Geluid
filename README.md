@@ -7,7 +7,7 @@
 
 <br/>
 
-Application based on `Electron`, `React`, `React-Router`, `Webpack`, `Socket.io`, `PortAudio Lame` and `WebRTC`.
+Application based on `Electron`, `React`, `React-Router`, `Webpack`, `Socket.io (WebSockets)`, `PortAudio` and `Lame`.
 It combines advantages of those packages to create a nice looking application.
 
 ## Usage
