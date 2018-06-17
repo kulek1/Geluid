@@ -29,10 +29,13 @@ It will run Electron application and browser client (React) on two different por
 ## How it works?
 
 It creates two instances of applications - client & server.
-Server is based on `Electron` and uses `node module (C++)` to stream mp3 audio from soundcard to `Node.js` script and then from `Node.js ` to Browser via `WebSocket` (Socket.io).
+Server is based on `Electron` and uses `node module (C++)` called `naudiodon-lame` to stream mp3 audio from soundcard to `Node.js` app and then from `Node.js ` to Browser via `WebSocket` (Socket.io).
 
 Client is based on React and it uses `WebWorkers` for buffering audio to get low latency sound.
 Despite complicated steps, latency of audio is at the level of ~1 second!
+
+Windows users might have something like "Stereo mix" in an audio control panel which picks up exactly what you hear from your speakers. Unfortunately, that device isn't available in macOS out of the box. The solution is to install open source kernel extension called [Soundflower](https://rogueamoeba.com/freebies/soundflower/)
+
 
 ## Features to do:
 - Code refactoring
