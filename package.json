@@ -1,7 +1,7 @@
 {
   "name": "Geluid",
   "productName": "Geluid",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Desktop application to stream audio from soundcard to web browser. Based on Electron, React, Webpack, WebRTC",
   "scripts": {
     "build": "concurrently \"npm run build-main\" \"npm run build-renderer\"",
@@ -9,6 +9,7 @@
     "build-main": "cross-env NODE_ENV=production node --trace-warnings -r babel-register ./node_modules/webpack/bin/webpack --config webpack.config.main.prod.js --colors",
     "build-renderer": "cross-env NODE_ENV=production node --trace-warnings -r babel-register ./node_modules/webpack/bin/webpack --config webpack.config.renderer.prod.js --colors",
     "dev": "cross-env START_HOT=1 node -r babel-register ./internals/scripts/CheckPortInUse.js && cross-env START_HOT=1 npm run start-renderer-dev",
+    "dev:client": "cd client && npm run start",
     "electron-rebuild": "electron-rebuild --parallel --force --types prod,dev,optional",
     "flow": "flow",
     "flow-typed": "rimraf flow-typed/npm && flow-typed install --overwrite || true",
@@ -193,7 +194,7 @@
     "font-awesome": "^4.7.0",
     "history": "^4.7.2",
     "lodash": "^4.17.10",
-    "naudiodon": "^0.4.7",
+    "naudiodon-lame": "0.4.9",
     "react": "^16.3.2",
     "react-dom": "^16.3.2",
     "react-hot-loader": "^4.1.2",

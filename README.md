@@ -20,12 +20,11 @@ Execute command on root directory:
 ```
 npm run dev
 ```
-then:
+and (new terminal session recommended):
 ```
-cd client
-npm run dev
+npm run dev:client
 ```
-It will run Electron application and browser client.
+It will run Electron application and browser client (React) on two different ports.
 
 ## How it works?
 
@@ -41,3 +40,14 @@ Despite complicated steps, latency of audio is at the level of ~1 second!
 - Make production build for Windows & Mac
 - Fix responsivness
 - Add missing features...
+
+## Issues
+You may encounter an error:
+```
+App threw an error during load
+Error: The module '/Users/username/Geluid/node_modules/naudiodon-lame/build/Release/naudiodon-lame.node'
+was compiled against a different Node.js version using
+NODE_MODULE_VERSION 59. This version of Node.js requires
+NODE_MODULE_VERSION 57. Please try re-compiling or re-installing
+```
+To resolve this, run in your terminal: `$(npm bin)/electron-rebuild`.

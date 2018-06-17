@@ -2,7 +2,7 @@
 
 const app = require('express')();
 const ss = require('socket.io-stream');
-const portAudio = require('naudiodon');
+const portAudio = require('naudiodon-lame');
 const http = require('http').createServer(app);
 const io = require('socket.io')(http);
 const { EN_ERROR, EN_RUNNING } = require('../translations/status');
