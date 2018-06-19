@@ -29,7 +29,7 @@ It will run Electron application and browser client (React) on two different por
 ## How it works?
 
 It creates two instances of applications - client & server.
-Server is based on `Electron` and uses `node module (C++)` called `naudiodon-lame` to stream mp3 audio from soundcard to `Node.js` app and then from `Node.js ` to Browser via `WebSocket` (Socket.io).
+Server is based on `Electron` also with `React` and uses `node module (C++)` called `naudiodon-lame` to stream mp3 audio from soundcard to `Node.js` app and then from `Node.js ` to Browser via `WebSocket` (Socket.io).
 
 Client is based on React and it uses `WebWorkers` for buffering audio to get low latency sound.
 Despite complicated steps, latency of audio is at the level of ~1 second!
@@ -45,7 +45,7 @@ Windows users might have something like "Stereo mix" in an audio control panel w
 - Add missing features...
 
 ## Issues
-You may encounter an error:
+- You may encounter an error:
 ```
 App threw an error during load
 Error: The module '/Users/username/Geluid/node_modules/naudiodon-lame/build/Release/naudiodon-lame.node'
@@ -54,3 +54,6 @@ NODE_MODULE_VERSION 59. This version of Node.js requires
 NODE_MODULE_VERSION 57. Please try re-compiling or re-installing
 ```
 To resolve this, run in your terminal: `$(npm bin)/electron-rebuild`.
+
+- Production build doesn't work now (node-loader is needed). It will be fixed soon.
+- as this application uses `MediaSource`, iOS isn't supported yet. (Why Apple?)
