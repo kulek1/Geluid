@@ -31,7 +31,7 @@
     "test-e2e": "cross-env NODE_ENV=test BABEL_DISABLE_CACHE=1 node --trace-warnings -r babel-register ./internals/scripts/RunTests.js e2e",
     "test-watch": "npm test -- --watch"
   },
-  "browserslist": "electron 1.6",
+  "browserslist": "electron 1.8",
   "build": {
     "productName": "Geluid",
     "appId": "org.mk.Geluid",
@@ -139,10 +139,9 @@
     "cross-spawn": "^6.0.5",
     "css-loader": "^0.28.11",
     "detect-port": "^1.2.2",
-    "electron": "^1.8.6",
+    "electron": "^1.8.7",
     "electron-builder": "^19.56.2",
     "electron-devtools-installer": "^2.2.3",
-    "electron-rebuild": "^1.7.3",
     "enzyme": "^3.3.0",
     "enzyme-adapter-react-16": "^1.1.1",
     "enzyme-to-json": "^3.3.3",
@@ -168,6 +167,7 @@
     "ip": "^1.1.5",
     "jest": "^22.4.3",
     "minimist": "^1.2.0",
+    "node-loader": "^0.6.0",
     "node-sass": "^4.9.0",
     "npm-logical-tree": "^1.2.1",
     "react-test-renderer": "^16.3.2",
@@ -180,9 +180,8 @@
     "stylefmt": "^6.0.0",
     "stylelint": "^8.4.0",
     "stylelint-config-standard": "^18.2.0",
-    "uglifyjs-webpack-plugin": "1.1.8",
+    "uglifyjs-webpack-plugin": "1.2.6",
     "url-loader": "^0.6.2",
-    "uws": "^10.148.0",
     "webpack": "^3.11.0",
     "webpack-bundle-analyzer": "^2.11.1",
     "webpack-dev-server": "^2.11.2",
@@ -191,10 +190,10 @@
   "dependencies": {
     "devtron": "^1.4.0",
     "electron-debug": "^1.5.0",
+    "electron-rebuild": "^1.7.3",
     "font-awesome": "^4.7.0",
     "history": "^4.7.2",
     "lodash": "^4.17.10",
-    "naudiodon-lame": "0.4.9",
     "react": "^16.3.2",
     "react-dom": "^16.3.2",
     "react-hot-loader": "^4.1.2",
@@ -206,13 +205,11 @@
     "redux": "^3.7.2",
     "redux-thunk": "^2.2.0",
     "roboto-fontface": "^0.9.0",
-    "socket.io": "^2.1.0",
-    "socket.io-stream": "^0.9.1",
     "source-map-support": "^0.5.3"
   },
   "devEngines": {
     "node": ">=7.x",
-    "npm": ">=4.x",
-    "yarn": ">=0.21.3"
+    "npm": ">=5.x",
+    "yarn": ">=1.0"
   }
 }

@@ -14,5 +14,9 @@
     "postinstall": "npm run electron-rebuild"
   },
   "license": "MIT",
-  "dependencies": {}
+  "dependencies": {
+    "naudiodon-lame": "^0.4.9",
+    "socket.io": "^2.1.1",
+    "socket.io-stream": "^0.9.1"
+  }
 }
