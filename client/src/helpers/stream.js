@@ -6,6 +6,7 @@
 import openSocket from 'socket.io-client';
 import adapter from 'webrtc-adapter';
 import Socket from './socket';
+
 const socket = Socket.socket;
 
 class Stream {
@@ -153,18 +154,18 @@ class Stream {
     }
 
     return (
-      s4() +
-      s4() +
-      '-' +
-      s4() +
-      '-' +
-      s4() +
-      '-' +
-      s4() +
-      '-' +
-      s4() +
-      s4() +
+      `${s4() +
       s4()
+      }-${
+        s4()
+      }-${
+        s4()
+      }-${
+        s4()
+      }-${
+        s4()
+      }${s4()
+      }${s4()}`
     );
   }
 }

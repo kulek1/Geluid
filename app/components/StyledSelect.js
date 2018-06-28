@@ -1,5 +1,7 @@
 const customStyles = {
-  option: (base, { data, isDisabled, isFocused, isSelected }) => {
+  option: (base, {
+    data, isDisabled, isFocused, isSelected
+  }) => {
     const { color } = data;
     return {
       ...base,

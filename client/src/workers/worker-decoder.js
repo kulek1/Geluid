@@ -1,4 +1,4 @@
-/*eslint-env worker */
+/* eslint-env worker */
 
 let bufferMp3 = new Uint8Array(0);
 let counterBuffer = 0;

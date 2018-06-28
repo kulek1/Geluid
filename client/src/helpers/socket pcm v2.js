@@ -4,6 +4,7 @@
 //
 
 import openSocket from 'socket.io-client';
+
 const ss = require('socket.io-stream');
 require('webrtc-adapter');
 
@@ -19,7 +20,7 @@ class Socket {
 
     this.time = 0;
 
-    //////////////////////
+    // ////////////////////
   }
 
   bindSockets() {
@@ -39,7 +40,7 @@ class Socket {
       stream.on('data', chunk => {
         console.log(chunk);
         string = String.fromCharCode.apply(null, chunk);
-        let float32 = this.convertString(string);
+        const float32 = this.convertString(string);
 
         for (let i = 0; i < float32.length; i++, counter++) {
           parts[counter] = float32[i];
@@ -72,11 +73,11 @@ class Socket {
 
       stream.on('end', () => {
         console.log('end');
-        var audio = document.getElementById('audio');
+        const audio = document.getElementById('audio');
         /*
         audio.src = (window.URL || window.webkitURL).createObjectURL(
           new Blob(parts, { type: 'audio/wave' })
-        );*/
+        ); */
 
         // var isApple = /Mac|iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
         // if (!isApple) {
@@ -88,13 +89,13 @@ class Socket {
   }
 
   playAudioFile = chunk => {
-    var buffer = new Uint8Array(chunk.length);
+    const buffer = new Uint8Array(chunk.length);
     buffer.set(new Uint8Array(chunk), 0);
     this.context.decodeAudioData(buffer.buffer, this.play);
   };
 
   play = audioBuffer => {
-    var source = this.context.createBufferSource();
+    const source = this.context.createBufferSource();
     source.buffer = audioBuffer;
     source.connect(this.context.destination);
     source.start(this.time);
@@ -112,8 +113,8 @@ class Socket {
     // myArrayBuffer.copyToChannel(receivedBuffer, 1);
 
     // This gives us the actual ArrayBuffer that contains the data
-    let nowBufferingLeft = myArrayBuffer.getChannelData(0, 16, 44100);
-    let nowBufferingRight = myArrayBuffer.getChannelData(1, 16, 44100);
+    const nowBufferingLeft = myArrayBuffer.getChannelData(0, 16, 44100);
+    const nowBufferingRight = myArrayBuffer.getChannelData(1, 16, 44100);
 
     for (let i = 0; i < myArrayBuffer.length; i++) {
       nowBufferingLeft[i] = receivedBuffer[i];
@@ -138,7 +139,7 @@ class Socket {
       l = incomingData.length;
     const outputData = new Float32Array(incomingData.length);
     for (i = 0; i < l; i++) {
-      //outputData[i] = (incomingData[i] - 128) / 128.0;
+      // outputData[i] = (incomingData[i] - 128) / 128.0;
       outputData[i] = ((incomingData[i] + 32768) % 65536 - 32768) / 32768.0;
     }
     return outputData;
@@ -146,8 +147,8 @@ class Socket {
 
   convertString = string => {
     const outputData = new Float32Array(string.length / 2);
-    for (var i = 0; i < string.length / 2; i++) {
-      var word =
+    for (let i = 0; i < string.length / 2; i++) {
+      const word =
         (string.charCodeAt(i * 2) & 0xff) +
         ((string.charCodeAt(i * 2 + 1) & 0xff) << 8);
       outputData[i] = ((word + 32768) % 65536 - 32768) / 32768.0;
