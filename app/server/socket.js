@@ -80,6 +80,7 @@ const initSocketServer = () => {
       } else {
         socket.join(roomName);
 
+        // eslint-disable-next-line no-param-reassign
         socket.room = roomName;
         currentRoom = roomName;
       }

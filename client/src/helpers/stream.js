@@ -4,19 +4,20 @@
 //
 
 import openSocket from 'socket.io-client';
+// eslint-disable-next-line no-unused-vars
 import adapter from 'webrtc-adapter';
 import Socket from './socket';
 
-const socket = Socket.socket;
+const { socket } = Socket;
 
 class Stream {
   constructor() {
-    this.uuid;
-    this.localStream;
-    this.localVideo;
-    this.remoteVideo;
-    this.serverConnection;
-    this.peerConnection;
+    this.uuid = null;
+    this.localStream = null;
+    this.localVideo = null;
+    this.remoteVideo = null;
+    this.serverConnection = null;
+    this.peerConnection = null;
     this.peerConnectionConfig = {
       iceServers: [
         {
@@ -79,7 +80,7 @@ class Stream {
           sdp: this.peerConnection.localDescription,
           uuid: this.uuid
         };
-        socket.emit('message', payload);
+        return socket.emit('message', payload);
       })
       .catch(this.fireError);
   }
@@ -142,7 +143,7 @@ class Stream {
   }
 
   gotRemoteStream(event) {
-    console.log('> GOT REMOTE!!!!!!!!!!!!!!!!');
+    console.log('> GOT REMOTE!');
     this.remoteVideo.srcObject = event.streams[0];
   }
 

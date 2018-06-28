@@ -1,9 +1,7 @@
 // @flow
 import React, { Component } from 'react';
-import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import styles from './ServerStatus.scss';
-import * as ServerActions from '../actions/server';
 import { EN_INITIALIZATION, EN_ERROR, EN_RUNNING } from '../translations/status';
 
 type Props = {

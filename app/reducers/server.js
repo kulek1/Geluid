@@ -6,10 +6,6 @@ type actionType = {
   +type: string
 };
 
-export type counterStateType = {
-  +status: string
-};
-
 const defaultState = {
   status: EN_INITIALIZATION,
   ipAddress: '127.0.0.1',

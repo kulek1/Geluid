@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import Select from 'react-select';
 import { ipcRenderer } from 'electron';
 import styles from './AudioSelect.scss';
-import customSelectStyle from './StyledSelect.js';
+import customSelectStyle from './StyledSelect';
 
 type Props = {
   audioDevices: array

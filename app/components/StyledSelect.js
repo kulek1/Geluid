@@ -1,18 +1,15 @@
 const customStyles = {
   option: (base, {
-    data, isDisabled, isFocused, isSelected
-  }) => {
-    const { color } = data;
-    return {
-      ...base,
-      borderBottom: '1px solid #BFC5D1',
-      color: '#737B91',
-      padding: 10,
-      fontSize: '13px',
-      backgroundColor: isSelected ? '#75A7FA' : isFocused ? '#7D8DA8' : null,
-      color: isFocused || isSelected ? '#fff' : '#737B91',
-    };
-  },
+    data, isFocused, isSelected
+  }) => ({
+    ...base,
+    borderBottom: '1px solid #BFC5D1',
+    color: '#737B91',
+    padding: 10,
+    fontSize: '13px',
+    backgroundColor: isSelected ? '#75A7FA' : isFocused ? '#7D8DA8' : null,
+    color: isFocused || (isSelected ? '#fff' : '#737B91'),
+  }),
   control: (base) => ({
     ...base,
     // none of react-selects styles are passed to <View />
