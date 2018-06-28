@@ -55,5 +55,4 @@ NODE_MODULE_VERSION 57. Please try re-compiling or re-installing
 ```
 To resolve this, run in your terminal: `$(npm bin)/electron-rebuild`.
 
-- Production build doesn't work now (node-loader is needed). It will be fixed soon.
 - as this application uses `MediaSource`, iOS isn't supported yet. (Why Apple?)
