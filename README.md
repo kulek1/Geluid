@@ -28,6 +28,10 @@ It will run Electron application and browser client (React) on two different por
 
 ## How it works?
 
+<div align="center">
+  <img src="https://raw.githubusercontent.com/kulek1/readmeimages/master/geluid-how-it-works.png" />
+</div>
+
 It creates two instances of applications - client & server.
 Server is based on `Electron` also with `React` and uses `node module (C++)` called `naudiodon-lame` to stream mp3 audio from soundcard to `Node.js` app and then from `Node.js ` to Browser via `WebSocket` (Socket.io).
 
