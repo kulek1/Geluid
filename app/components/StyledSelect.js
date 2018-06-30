@@ -1,13 +1,13 @@
 const customStyles = {
   option: (base, {
-    data, isFocused, isSelected
+    isFocused, isSelected
   }) => ({
     ...base,
     borderBottom: '1px solid #BFC5D1',
-    color: '#737B91',
     padding: 10,
     fontSize: '13px',
-    backgroundColor: isSelected ? '#75A7FA' : isFocused ? '#7D8DA8' : null,
+    // eslint-disable-next-line no-nested-ternary
+    backgroundColor: isSelected ? '#75A7FA' : (isFocused ? '#7D8DA8' : null),
     color: isFocused || (isSelected ? '#fff' : '#737B91'),
   }),
   control: (base) => ({

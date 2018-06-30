@@ -14,6 +14,10 @@ import ip from 'ip';
 import { app, BrowserWindow, ipcMain } from 'electron';
 import MenuBuilder from './menu';
 import { initSocketServer, reloadAudioInstance } from './server/socket';
+import createServer from './webServer';
+
+// Create Express Server to serve Client website from ../client directory
+createServer();
 
 let mainWindow = null;
 

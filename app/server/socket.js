@@ -10,6 +10,8 @@ const { EN_ERROR, EN_RUNNING } = require('../translations/status');
 let audioDeviceId = -1;
 let audioInstance = null;
 
+const MAX_CLIENTS = 5;
+
 function reloadAudioInstance(id) {
   console.log('reload instance');
   setAudioDevice(id);
@@ -45,10 +47,8 @@ function startAudioStreaming(stream) {
   audioInstance.start();
 }
 
-const initSocketServer = () => {
+function initSocketServer() {
   const { setServerStatus, setServerListeners, setServerAudioDevices } = require('../main.dev');
-
-  const MAX_CLIENTS = 5;
   let isPlaying = false;
 
   http.on('error', () => setTimeout(() => setServerStatus(EN_ERROR), 1500));
@@ -113,7 +113,7 @@ const initSocketServer = () => {
   const getAllClients = () => Object.keys(io.sockets.connected).length;
 
   const updateListenersCounter = () => setServerListeners(getAllClients());
-};
+}
 
 export default { initSocketServer, reloadAudioInstance };
 

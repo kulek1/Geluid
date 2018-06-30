@@ -11,20 +11,22 @@ Application based on `Electron`, `React`, `React-Router`, `Webpack`, `Socket.io 
 It combines advantages of those packages to create a nice looking application.
 
 ## Usage
-> :warning: This application is still under development and it's not stable version.
+> :warning: This application is still under development and it's not a stable version.
 
 
-### Installation
+### Developing
 
-Execute command on root directory:
+Build the client web app:
+```
+npm run build-client
+```
+Then build Electron app:
 ```
 npm run dev
 ```
-and (new terminal session recommended):
-```
-npm run dev:client
-```
 It will run Electron application and browser client (React) on two different ports.
+
+Client: (http://localhost:9000)
 
 ## How it works?
 
@@ -45,7 +47,7 @@ Windows users might have something like "Stereo mix" in an audio control panel w
 - Code refactoring
 - Improve stability
 - Make production build for Windows & Mac
-- Fix responsivness
+- Improve scalability
 - Add missing features...
 
 ## Issues

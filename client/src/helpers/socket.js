@@ -1,5 +1,5 @@
 import openSocket from 'socket.io-client';
-import DecoderWorker from '../workers/worker-decoder';
+import DecoderWorker from '../workers/decoder.worker';
 
 const ss = require('socket.io-stream');
 require('webrtc-adapter');
