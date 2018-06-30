@@ -28,7 +28,9 @@ function initAudioInstance() {
     channelCount: 2,
     sampleFormat: portAudio.SampleFormat16Bit,
     sampleRate: 44100,
-    deviceId: audioDeviceId // Use -1 or omit the deviceId to select the default device
+    deviceId: audioDeviceId, // Use -1 or omit the deviceId to select the default device,
+    bitRate: 128,
+    lameQuality: 5,
   });
 }
 

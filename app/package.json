@@ -15,7 +15,7 @@
   },
   "license": "MIT",
   "dependencies": {
-    "naudiodon-lame": "^0.4.9",
+    "naudiodon-lame": "^0.5.0",
     "socket.io": "^2.1.1",
     "socket.io-stream": "^0.9.1"
   }
