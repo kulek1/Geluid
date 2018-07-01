@@ -11,9 +11,6 @@ class ActiveListeners extends Component<Props> {
 
   constructor() {
     super();
-    this.listeners = 0;
-    this.isAnimating = false;
-    this.previousListeners = 0;
     this.numberContainer = React.createRef();
 
     this.classNames = {
@@ -23,6 +20,8 @@ class ActiveListeners extends Component<Props> {
     this.state = {
       firstNumber: this.classNames.current,
       secondNumber: this.classNames.incoming,
+      isAnimating: false,
+      previousListeners: 0,
     };
     this.animate = this.animate.bind(this);
     this.disableAnimating = this.disableAnimating.bind(this);
@@ -30,24 +29,28 @@ class ActiveListeners extends Component<Props> {
   }
 
   componentDidUpdate() {
-    if (this.previousListeners === this.listeners) return;
+    if (this.state.previousListeners === this.props.listenersCount) return;
 
     this.checkIsAnimatingThrottle();
   }
 
   checkIsAnimating() {
-    if (this.isAnimating === true) return;
+    if (this.state.isAnimating) return;
 
-    this.previousListeners = this.listeners;
+    this.setState({
+      previousListeners: this.props.listenersCount,
+    });
     const incomingEl = this.numberContainer.current.querySelector(`.${this.classNames.incoming}`);
-    incomingEl.innerText = this.listeners;
+    incomingEl.innerText = this.props.listenersCount;
 
     this.animate();
     setTimeout(() => this.onTransitionEnd(), 600);
   }
 
   animate() {
-    this.isAnimating = true;
+    this.setState({
+      isAnimating: true,
+    });
     this.numberContainer.current.classList.add('animating');
   }
 
@@ -71,12 +74,12 @@ class ActiveListeners extends Component<Props> {
 
   disableAnimating() {
     this.numberContainer.current.classList.remove('animating', 'end');
-    this.isAnimating = false;
+    this.setState({
+      isAnimating: false,
+    });
   }
 
   render() {
-    this.listeners = this.props.listenersCount;
-
     return (
       <div className="box box__listeners">
         <div className="box__content">
