@@ -34,13 +34,34 @@
       transition: transform .5s ease;
     }
 
-    &__current {
-
-    }
-
     &__incoming {
       visibility: hidden;
       transform: translateY(68px);
+    }
+  }
+
+  .content__settings {
+    display: flex;
+    justify-content: flex-end;
+
+    > button {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 50px;
+      height: 50px;
+      background-color: #fff;
+      border-radius: 50%;
+      border: 0;
+      box-shadow: 0 1px 8px 2px rgb(133, 159, 202);
+
+      &:hover {
+        cursor: pointer;
+      }
+
+      > img {
+        width: 70%;
+      }
     }
   }
 }

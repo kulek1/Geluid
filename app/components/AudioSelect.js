@@ -58,11 +58,9 @@ class AudioSelect extends Component<Props> {
   }
 }
 
-function mapStateToProps(state) {
-  return {
-    audioDevices: state.server.audioDevices,
-    status: state.server.status,
-  };
-}
+const mapStateToProps = (state) => ({
+  audioDevices: state.server.audioDevices,
+  status: state.server.status,
+});
 
 export default connect(mapStateToProps)(AudioSelect);

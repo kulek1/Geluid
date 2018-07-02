@@ -5,7 +5,7 @@ import { ipcRenderer } from 'electron';
 import Root from './containers/Root';
 import { configureStore, history } from './store/configureStore';
 import './sass/app.global.scss';
-import { setStatus, setIpAddress, setListenersCount, setAudioDevices } from './actions/server';
+import { setStatus, setIpAddress, setListenersCount, setAudioDevices } from './actions/';
 
 const store = configureStore();
 

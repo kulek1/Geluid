@@ -1,9 +1,13 @@
+// @flow
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import _throttle from 'lodash/throttle';
+import { openSettings } from '../actions/';
+import settingsIcon from '../img/ic-setting.svg';
 
 type Props = {
-  listenersCount: number
+  listenersCount: number,
+  openSettings: func
 };
 
 class ActiveListeners extends Component<Props> {
@@ -90,16 +94,23 @@ class ActiveListeners extends Component<Props> {
               <span className={this.state.secondNumber}>0</span>
             </div>
           </div>
+          <div className="content__settings">
+            <button type="button" onClick={this.props.openSettings}>
+              <img src={settingsIcon} alt="Open settings" />
+            </button>
+          </div>
         </div>
       </div>
     );
   }
 }
 
-function mapStateToProps(state) {
-  return {
-    listenersCount: state.server.listenersCount,
-  };
-}
+const mapStateToProps = (state) => ({
+  listenersCount: state.server.listenersCount,
+});
 
-export default connect(mapStateToProps)(ActiveListeners);
+const mapDispatchToProps = {
+  openSettings,
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(ActiveListeners);

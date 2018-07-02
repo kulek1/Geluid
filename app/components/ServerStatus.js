@@ -39,11 +39,9 @@ class ServerStatus extends Component<Props> {
   }
 }
 
-function mapStateToProps(state) {
-  return {
-    status: state.server.status,
-    ipAddress: state.server.ipAddress,
-  };
-}
+const mapStateToProps = (state) => ({
+  status: state.server.status,
+  ipAddress: state.server.ipAddress,
+});
 
 export default connect(mapStateToProps)(ServerStatus);

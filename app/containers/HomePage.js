@@ -1,16 +1,22 @@
 // @flow
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import styles from './HomePage.scss';
 import ActiveListeners from '../components/ActiveListeners';
 import ServerStatus from '../components/ServerStatus';
 import AudioSelect from '../components/AudioSelect';
+import SettingsDialog from '../components/SettingsDialog';
 
-type Props = {};
+type Props = {
+  isSettingsDialog: boolean
+};
 
-export default class HomePage extends Component<Props> {
+class HomePage extends Component<Props> {
   props: Props;
 
   render() {
+    const { isSettingsDialog } = this.props;
+
     return (
       <div className={styles.container}>
         <h3 className="app-title">Streaming-Server</h3>
@@ -21,7 +27,14 @@ export default class HomePage extends Component<Props> {
         <div className={styles.container__select}>
           <AudioSelect />
         </div>
+        { isSettingsDialog ? <SettingsDialog /> : null }
       </div>
     );
   }
 }
+
+const mapStateToProps = (state) => ({
+  isSettingsDialog: state.app.isSettingsDialog,
+});
+
+export default connect(mapStateToProps)(HomePage);

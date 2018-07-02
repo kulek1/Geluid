@@ -1,5 +1,5 @@
 // @flow
-import { SET_STATUS, SET_IP_ADDRESS, SET_LISTENERS_COUNT, SET_AUDIO_DEVICES } from '../actions/server';
+import { SET_STATUS, SET_IP_ADDRESS, SET_LISTENERS_COUNT, SET_AUDIO_DEVICES } from '../actions/actionTypes';
 import { EN_INITIALIZATION } from '../translations/status';
 
 type actionType = {
@@ -13,7 +13,7 @@ const defaultState = {
   audioDevices: [],
 };
 
-export default function server(state: array = defaultState, action: actionType) {
+const server = (state: array = defaultState, action: actionType) => {
   switch (action.type) {
     case SET_STATUS:
       return { ...state, status: action.payload };
@@ -30,4 +30,6 @@ export default function server(state: array = defaultState, action: actionType) 
     default:
       return state;
   }
-}
+};
+
+export default server;
