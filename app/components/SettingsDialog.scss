@@ -1,0 +1,42 @@
+$dialog-width: 615px;
+$dialog-height: 400px;
+
+.box__settings-dialog {
+  position: absolute;
+  left: 0;
+  top: 0;
+  transition: height .3s ease-in, width .3s ease-in;
+  will-change: width, height;
+  z-index: 100;
+
+  // animations
+  &-enter-active {
+    width: $dialog-width;
+    height: $dialog-height;
+    transition: all .5s ease-in;
+  }
+
+  &-enter-done {
+    width: $dialog-width;
+    height: $dialog-height;
+  }
+
+  &-exit {
+    width: 300px;
+    height: 200px;
+  }
+
+  &-exit-active {
+    width: 300px;
+    height: 200px;
+    transition: all .5s ease-out;
+  }
+
+  button {
+    color: $bg-secondary;
+    background-color: transparent;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+  }
+}

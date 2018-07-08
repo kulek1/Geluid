@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import _throttle from 'lodash/throttle';
 import { openSettings } from '../actions/';
 import settingsIcon from '../img/ic-setting.svg';
+import SettingsDialog from './SettingsDialog';
 
 type Props = {
   listenersCount: number,
@@ -85,7 +86,7 @@ class ActiveListeners extends Component<Props> {
 
   render() {
     return (
-      <div className="box box__listeners">
+      <div className="box box--blue box__listeners">
         <div className="box__content">
           <div className="content__status">
             <p>Active listeners:</p>
@@ -100,12 +101,13 @@ class ActiveListeners extends Component<Props> {
             </button>
           </div>
         </div>
+        <SettingsDialog />
       </div>
     );
   }
 }
 
-const mapStateToProps = (state) => ({
+const mapStateToProps = state => ({
   listenersCount: state.server.listenersCount,
 });
 

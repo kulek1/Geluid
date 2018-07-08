@@ -1,5 +1,5 @@
 // @flow
-import { OPEN_SETTINGS, CLOSE_DIALOG } from '../actions/actionTypes';
+import { OPEN_SETTINGS, CLOSE_SETTINGS } from '../actions/actionTypes';
 
 type actionType = {
   +type: string
@@ -13,8 +13,8 @@ const app = (state: array = defaultState, action: actionType) => {
   switch (action.type) {
     case OPEN_SETTINGS:
       return { ...state, isSettingsDialog: true };
-    case CLOSE_DIALOG:
-      return { ...state, isSettingsDialog: false };
+    case CLOSE_SETTINGS:
+      return { isSettingsDialog: false };
 
     default:
       return state;
