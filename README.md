@@ -49,6 +49,7 @@ Windows users might have something like "Stereo mix" in an audio control panel w
 ## Features to do:
 
 - Code refactoring
+- Add tests
 - Improve stability
 - Make production build for Windows & Mac
 - Improve scalability
