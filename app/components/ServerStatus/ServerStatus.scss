@@ -1,4 +1,4 @@
-@import '../sass/variables';
+@import '../../sass/variables';
 
 .heading {
   margin-top: 0;
@@ -8,7 +8,7 @@
 
 .divider {
   height: 1px;
-  background-color: #48C131;
+  background-color: #48c131;
   border: none;
 }
 
@@ -19,7 +19,7 @@
     background-color: darken($color-green, 8%);
   }
 }
-  
+
 .error {
   background-color: $color-red;
 
@@ -27,7 +27,7 @@
     background-color: darken($color-red, 8%);
   }
 }
-  
+
 .warning {
   background-color: $color-orange;
 
@@ -35,4 +35,3 @@
     background-color: darken($color-orange, 10%);
   }
 }
-

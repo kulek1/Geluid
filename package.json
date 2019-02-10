@@ -157,7 +157,7 @@
     "eslint-plugin-jest": "^21.15.1",
     "eslint-plugin-jsx-a11y": "6.0.3",
     "eslint-plugin-promise": "^3.7.0",
-    "eslint-plugin-react": "^7.7.0",
+    "eslint-plugin-react": "^7.12.4",
     "express": "^4.16.3",
     "extract-text-webpack-plugin": "^4.0.0-beta.0",
     "fbjs-scripts": "^0.8.3",
@@ -191,6 +191,7 @@
     "webpack-merge": "^4.2.1"
   },
   "dependencies": {
+    "classnames": "^2.2.6",
     "devtron": "^1.4.0",
     "electron-debug": "^1.5.0",
     "font-awesome": "^4.7.0",

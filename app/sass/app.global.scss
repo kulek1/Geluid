@@ -3,15 +3,15 @@
 @import 'boxes';
 @import 'react-select';
 @import '../containers/HomePage';
-@import '../components/ActiveListeners';
-@import '../components/SettingsDialog';
+@import '../components/ActiveListeners/ActiveListeners.scss';
+@import '../components/SettingsDialog/SettingsDialog.scss';
 @import './audio-select';
 
 body {
   position: relative;
   color: black;
   height: 100vh;
-  background-color: #FFF;
+  background-color: #fff;
   font-family: 'Roboto', Helvetica, Helvetica Neue, serif;
   overflow: hidden;
 }

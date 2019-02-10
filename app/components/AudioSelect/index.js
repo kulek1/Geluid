@@ -10,35 +10,35 @@ type Props = {
   audioDevices: array
 };
 
+const placeholder = (
+  <span>
+    <span className={customSelectStyle.circleGreen} />
+    Select audio device
+  </span>
+);
+
 class AudioSelect extends Component<Props> {
   props: Props;
   state = {
-    selectedOption: '',
-  }
+    selectedOption: ''
+  };
 
-  updateValue = (value) => {
+  updateValue = value => {
     this.setState({
       selectedOption: value
     });
     this.sendSelectedAudioDeviceId(value.value);
-  }
+  };
 
-  sendSelectedAudioDeviceId = (deviceId) => ipcRenderer.send('client-audio-devices', deviceId);
+  sendSelectedAudioDeviceId = deviceId => ipcRenderer.send('client-audio-devices', deviceId);
 
   render() {
     const { audioDevices } = this.props;
     const { selectedOption } = this.state;
-    const devices = audioDevices.map((item) => ({
+    const devices = audioDevices.map(item => ({
       label: item.name,
       value: item.id
     }));
-
-    const placeholder = (
-      <span>
-        <span className={customSelectStyle.circleGreen} />
-        Select audio device
-      </span>
-    );
 
     return (
       <div className={styles.container}>
@@ -58,9 +58,9 @@ class AudioSelect extends Component<Props> {
   }
 }
 
-const mapStateToProps = (state) => ({
-  audioDevices: state.server.audioDevices,
-  status: state.server.status,
+const mapStateToProps = ({ server }) => ({
+  audioDevices: server.audioDevices,
+  status: server.status
 });
 
 export default connect(mapStateToProps)(AudioSelect);
