@@ -19,6 +19,7 @@ const placeholder = (
 
 class AudioSelect extends Component<Props> {
   props: Props;
+
   state = {
     selectedOption: ''
   };
@@ -30,7 +31,8 @@ class AudioSelect extends Component<Props> {
     this.sendSelectedAudioDeviceId(value.value);
   };
 
-  sendSelectedAudioDeviceId = deviceId => ipcRenderer.send('client-audio-devices', deviceId);
+  sendSelectedAudioDeviceId = deviceId =>
+    ipcRenderer.send('client-audio-devices', deviceId);
 
   render() {
     const { audioDevices } = this.props;
