@@ -19,6 +19,13 @@
     "flowtype/union-intersection-spacing": ["error", "always"],
     "flowtype/use-flow-type": "error",
     "flowtype/valid-syntax": "error",
-    "import/no-extraneous-dependencies": 0
+    "import/no-extraneous-dependencies": 0,
+    "jsx-a11y/label-has-associated-control": 0,
+    "react/jsx-filename-extension": [
+      1,
+      {
+        "extensions": [".js", ".jsx"]
+      }
+    ]
   }
 }
