@@ -71,6 +71,9 @@ app.on('ready', async () => {
     height: 700,
     titleBarStyle: 'hiddenInset',
     resizable: false,
+    webPreferences: {
+      nodeIntegration: true
+    }
   });
 
   mainWindow.loadURL(`file://${__dirname}/app.html`);
