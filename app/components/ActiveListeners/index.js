@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import _throttle from 'lodash/throttle';
 import cs from 'classnames';
-import { openSettings } from '../../actions';
+import { openSettings as openSettingsAction } from '../../actions';
 import settingsIcon from '../../img/ic-setting.svg';
 import SettingsDialog from '../SettingsDialog';
 
@@ -21,6 +21,7 @@ const CLASSNAMES = {
 
 class ActiveListeners extends Component<Props> {
   props: Props;
+
   state = {
     firstNumber: CLASSNAMES.current,
     secondNumber: CLASSNAMES.incoming,
@@ -30,22 +31,30 @@ class ActiveListeners extends Component<Props> {
   };
 
   componentDidUpdate() {
-    if (this.state.previousListeners === this.props.listenersCount) return;
+    const { previousListeners } = this.state;
+    const { listenersCount } = this.props;
+
+    if (previousListeners === listenersCount) return;
 
     this.checkIsAnimatingThrottle();
   }
 
   numberContainer = React.createRef();
+
   checkIsAnimatingThrottle = _throttle(() => this.checkIsAnimating(), 2000);
 
   checkIsAnimating() {
-    if (this.state.isAnimating) return;
+    const { isAnimating } = this.state;
+
+    if (isAnimating) return;
     const { listenersCount } = this.props;
 
     this.setState({
       previousListeners: listenersCount
     });
-    const incomingEl = this.numberContainer.current.querySelector(`.${CLASSNAMES.incoming}`);
+    const incomingEl = this.numberContainer.current.querySelector(
+      `.${CLASSNAMES.incoming}`
+    );
     incomingEl.innerText = listenersCount;
 
     this.animate();
@@ -86,6 +95,14 @@ class ActiveListeners extends Component<Props> {
     });
 
   render() {
+    const {
+      isAnimating,
+      isTransitionEnd,
+      firstNumber,
+      secondNumber
+    } = this.state;
+    const { openSettings } = this.props;
+
     return (
       <div className="box box--blue box__listeners">
         <div className="box__content">
@@ -93,17 +110,17 @@ class ActiveListeners extends Component<Props> {
             <p>Active listeners:</p>
             <div
               className={cs('listeners', {
-                [CLASSNAMES.animate]: this.state.isAnimating,
-                [CLASSNAMES.end]: this.state.isTransitionEnd
+                [CLASSNAMES.animate]: isAnimating,
+                [CLASSNAMES.end]: isTransitionEnd
               })}
               ref={this.numberContainer}
             >
-              <span className={this.state.firstNumber}>0</span>
-              <span className={this.state.secondNumber}>0</span>
+              <span className={firstNumber}>0</span>
+              <span className={secondNumber}>0</span>
             </div>
           </div>
           <div className="content__settings">
-            <button type="button" onClick={this.props.openSettings}>
+            <button type="button" onClick={openSettings}>
               <img src={settingsIcon} alt="Open settings" />
             </button>
           </div>
@@ -119,7 +136,7 @@ const mapStateToProps = ({ server }) => ({
 });
 
 const mapDispatchToProps = {
-  openSettings
+  openSettings: openSettingsAction
 };
 
 export default connect(
