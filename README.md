@@ -53,6 +53,7 @@ Windows users might have something like "Stereo mix" in an audio control panel w
 - Improve stability
 - Make production build for Windows & Mac
 - Improve scalability
+- Update Babel 6 to 7
 - Add missing features...
 
 ## Issues
