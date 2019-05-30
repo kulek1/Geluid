@@ -54,6 +54,7 @@ Windows users might have something like "Stereo mix" in an audio control panel w
 - Make production build for Windows & Mac
 - Improve scalability
 - Update Babel 6 to 7
+- Replace `Flow` with `Typescript`
 - Add missing features...
 
 ## Issues
