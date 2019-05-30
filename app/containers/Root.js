@@ -10,7 +10,7 @@ type Props = {
   history: {}
 };
 
-const Root = ({ store, history }): Props => (
+const Root = ({ store, history }: Props) => (
   <Provider store={store}>
     <ConnectedRouter history={history}>
       <Routes />
