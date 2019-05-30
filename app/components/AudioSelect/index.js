@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Select from 'react-select';
 import { ipcRenderer } from 'electron';
-import styles from './AudioSelect.scss';
+import styles from './styles.scss';
 import customSelectStyle from './StyledSelect';
 
 type Props = {

@@ -2,7 +2,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import cs from 'classnames';
-import styles from './ServerStatus.scss';
+import styles from './styles.scss';
 import { EN_INITIALIZATION, EN_ERROR, EN_RUNNING } from '../../translations/status';
 
 type Props = {

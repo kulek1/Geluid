@@ -2,9 +2,9 @@
 @import 'variables';
 @import 'boxes';
 @import 'react-select';
-@import '../containers/HomePage';
-@import '../components/ActiveListeners/ActiveListeners.scss';
-@import '../components/SettingsDialog/SettingsDialog.scss';
+@import '../containers/HomePage/styles';
+@import '../components/ActiveListeners/styles';
+@import '../components/SettingsDialog/styles';
 @import './audio-select';
 
 body {

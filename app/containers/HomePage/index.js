@@ -1,8 +1,8 @@
 // @flow
 import React, { Component } from 'react';
-import ActiveListeners from '../components/ActiveListeners';
-import ServerStatus from '../components/ServerStatus';
-import AudioSelect from '../components/AudioSelect';
+import ActiveListeners from '../../components/ActiveListeners';
+import ServerStatus from '../../components/ServerStatus';
+import AudioSelect from '../../components/AudioSelect';
 
 class HomePage extends Component<Props> {
   props: Props;
