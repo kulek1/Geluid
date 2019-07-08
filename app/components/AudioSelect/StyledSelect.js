@@ -1,16 +1,14 @@
-const customStyles = {
-  option: (base, {
-    isFocused, isSelected
-  }) => ({
+const styledSelect = {
+  option: (base, { isFocused, isSelected }) => ({
     ...base,
     borderBottom: '1px solid #BFC5D1',
     padding: 10,
     fontSize: '13px',
     // eslint-disable-next-line no-nested-ternary
-    backgroundColor: isSelected ? '#75A7FA' : (isFocused ? '#7D8DA8' : null),
-    color: isFocused || (isSelected ? '#fff' : '#737B91'),
+    backgroundColor: isSelected ? '#75A7FA' : isFocused ? '#7D8DA8' : null,
+    color: isFocused || (isSelected ? '#fff' : '#737B91')
   }),
-  control: (base) => ({
+  control: base => ({
     ...base,
     // none of react-selects styles are passed to <View />
     width: 300,
@@ -23,9 +21,9 @@ const customStyles = {
     backgroundColor: '#fff',
     border: '0',
     boxShadow: '0px 30px 72px #DFE2E8;',
-    position: 'relative',
+    position: 'relative'
   }),
-  placeholder: (base) => ({
+  placeholder: base => ({
     ...base,
     color: '#888',
     ':before': {
@@ -35,10 +33,10 @@ const customStyles = {
       display: 'block',
       marginRight: 8,
       height: 10,
-      width: 10,
-    },
+      width: 10
+    }
   }),
-  input: (base) => ({
+  input: base => ({
     ...base,
     ':before': {
       backgroundColor: 'red',
@@ -47,18 +45,18 @@ const customStyles = {
       display: 'block',
       marginRight: 8,
       height: 10,
-      width: 10,
-    },
+      width: 10
+    }
   }),
-  indicatorsContainer: (base) => ({
+  indicatorsContainer: base => ({
     ...base,
-    borderColor: 'red',
+    borderColor: 'red'
   }),
-  singleValue: (base) => ({
+  singleValue: base => ({
     ...base,
     color: '#888',
-    fontSize: 15,
+    fontSize: 15
   })
 };
 
-export default customStyles;
+export default styledSelect;
