@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import Select from 'react-select';
 import { ipcRenderer } from 'electron';
 import styles from './styles.scss';
-import customSelectStyle from './StyledSelect';
+import customSelectStyle from './styledSelect';
 
 const placeholder = (
   <span>
