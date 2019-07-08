@@ -1,6 +1,13 @@
 <div align="center">
   <h1>Geluid</h1>
-  <img src="https://raw.githubusercontent.com/kulek1/readmeimages/master/geluid.png" />
+
+  <img src="https://img.shields.io/github/issues/kulek1/geluid.svg?style=flat-square" />
+  <img src="https://img.shields.io/david/dev/kulek1/geluid.svg?style=flat-square" />
+  <img src="https://img.shields.io/github/license/kulek1/geluid.svg?color=%2344cc12%3B&style=flat-square" />
+  <img src="https://img.shields.io/github/package-json/v/kulek1/geluid.svg?style=flat-square" />
+  <img src="https://img.shields.io/github/package-json/dependency-version/kulek1/geluid/react.svg?style=flat-square" />
+  <br/>
+  <img src="https://raw.githubusercontent.com/kulek1/readmeimages/master/geluid.png" style="max-width: 650px"/>
   <h3>Low latency streaming audio from soundcard directly to the browser.</h3>
   <p>Use on any desktop or mobile device.</p>
 </div>
