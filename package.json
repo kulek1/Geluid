@@ -215,8 +215,13 @@
     "source-map-support": "^0.5.3"
   },
   "devEngines": {
-    "node": ">=7.x",
+    "node": ">=7.x <10.0.0",
     "npm": ">=5.x",
     "yarn": ">=1.0"
+  },
+  "engines": {
+    "node": ">=7.x <=8.16.0",
+    "npm": ">=5.x",
+    "yarn": ">=1.3"
   }
 }
