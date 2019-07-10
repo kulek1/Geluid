@@ -1,5 +1,5 @@
 {
-  "name": "Geluid",
+  "name": "geluid",
   "productName": "Geluid",
   "version": "0.0.2",
   "description": "Desktop application to stream audio from soundcard to web browser. Based on Electron, React, Webpack, WebRTC",
@@ -80,7 +80,7 @@
     "url": "git+https://github.com/kulek1/Geluid.git"
   },
   "author": {
-    "name": "Mateusz Kuliński",
+    "name": "kulek1",
     "url": "https://github.com/kulek1"
   },
   "license": "MIT",
