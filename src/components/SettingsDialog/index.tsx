@@ -1,8 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { CSSTransition } from 'react-transition-group';
-import { closeSettings } from '../../actions';
-import backIcon from '../../img/ic-back.svg';
+
+import { closeSettings } from 'actions';
+import backIcon from 'img/ic-back.svg';
 
 type Props = {
   isSettingsDialog: boolean;

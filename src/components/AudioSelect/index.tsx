@@ -2,10 +2,11 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Select from 'react-select';
 import { ipcRenderer } from 'electron';
+import { ValueType } from 'react-select/src/types';
+
+import { ServerDefaultState } from 'reducers/server';
 import styles from './styles.module.scss';
 import customSelectStyle from './StyledSelect';
-import { ValueType } from 'react-select/src/types';
-import { ServerDefaultState } from '../../reducers/server';
 
 type Props = {
   audioDevices: [];

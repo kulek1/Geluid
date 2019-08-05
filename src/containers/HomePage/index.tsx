@@ -1,7 +1,7 @@
 import React from 'react';
-import ActiveListeners from '../../components/ActiveListeners';
-import ServerStatus from '../../components/ServerStatus';
-import AudioSelect from '../../components/AudioSelect';
+import ActiveListeners from 'components/ActiveListeners';
+import ServerStatus from 'components/ServerStatus';
+import AudioSelect from 'components/AudioSelect';
 
 const HomePage = () => (
   <div className="container">

@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
+import cs from 'classnames';
 import { connect } from 'react-redux';
 import _throttle from 'lodash/throttle';
-import cs from 'classnames';
-import { openSettings as openSettingsAction } from '../../actions';
-import settingsIcon from '../../img/ic-setting.svg';
-import SettingsDialog from '../SettingsDialog';
-import { ServerDefaultState } from '../../reducers/server';
+
+import { openSettings as openSettingsAction } from 'actions';
+import SettingsDialog from 'components/SettingsDialog';
+import settingsIcon from 'img/ic-setting.svg';
+import { ServerDefaultState } from 'reducers/server';
 
 type Props = {
   listenersCount: number;
