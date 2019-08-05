@@ -56,12 +56,16 @@ Windows users might have something like "Stereo mix" in an audio control panel w
 ## Features to do:
 
 - Code refactoring
+  - add types
+  - replace `CSS Modules` with `Styled-components`
+  - reorganize app structure
+  - use absolute imports
 - Add tests
 - Improve stability
 - Make production build for Windows & Mac
 - Improve scalability
-- Update Babel 6 to 7
-- Replace `Flow` with `Typescript`
+- Update Babel 6 to 7 ✅
+- Replace `Flow` with `Typescript` ✅
 - Add missing features...
 
 ## Issues
