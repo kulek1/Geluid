@@ -61,6 +61,8 @@ Windows users might have something like "Stereo mix" in an audio control panel w
   - reorganize app structure
   - use absolute imports ✅
 - Add tests
+- Add stylelint
+- Add `react-spring` for animations
 - Improve stability
 - Make production build for Windows & Mac
 - Improve scalability
