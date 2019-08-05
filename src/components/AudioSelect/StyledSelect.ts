@@ -1,4 +1,6 @@
-const customStyles: any = {
+import { StylesConfig } from 'react-select/src/styles';
+
+const customStyles: StylesConfig = {
   option: (
     base: any,
     { isFocused, isSelected }: { isFocused: boolean; isSelected: boolean }
