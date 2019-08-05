@@ -3,8 +3,8 @@ import {
   SET_IP_ADDRESS,
   SET_LISTENERS_COUNT,
   SET_AUDIO_DEVICES
-} from '../actions/actionTypes';
-import { EN_INITIALIZATION } from '../translations/status';
+} from 'store/server/types';
+import { EN_INITIALIZATION } from 'translations/status';
 
 type actionType = {
   type: string;

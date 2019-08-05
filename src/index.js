@@ -10,7 +10,7 @@ import {
   setIpAddress,
   setListenersCount,
   setAudioDevices
-} from './actions/';
+} from 'store/server/actions';
 
 ReactDOM.render(
   <Root store={store} history={history} />,

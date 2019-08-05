@@ -3,10 +3,10 @@ import cs from 'classnames';
 import { connect } from 'react-redux';
 import _throttle from 'lodash/throttle';
 
-import { openSettings as openSettingsAction } from 'actions';
+import { openSettings as openSettingsAction } from 'store/app/actions';
 import SettingsDialog from 'components/SettingsDialog';
 import settingsIcon from 'img/ic-setting.svg';
-import { ServerDefaultState } from 'reducers/server';
+import { ServerDefaultState } from 'store/server/reducer';
 
 type Props = {
   listenersCount: number;

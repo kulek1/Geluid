@@ -4,7 +4,7 @@ import Select from 'react-select';
 import { ipcRenderer } from 'electron';
 import { ValueType } from 'react-select/src/types';
 
-import { ServerDefaultState } from 'reducers/server';
+import { ServerDefaultState } from 'store/server/reducer';
 import styles from './styles.module.scss';
 import customSelectStyle from './StyledSelect';
 
@@ -12,12 +12,7 @@ type Props = {
   audioDevices: [];
 };
 
-const placeholder: unknown = (
-  <span>
-    <span className={customSelectStyle.circleGreen} />
-    Select audio device
-  </span>
-);
+const placeholder: unknown = <span>Select audio device</span>;
 
 class AudioSelect extends Component<Props> {
   state = {

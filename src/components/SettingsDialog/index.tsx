@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { CSSTransition } from 'react-transition-group';
 
-import { closeSettings } from 'actions';
+import { closeSettings } from 'store/app/actions';
 import backIcon from 'img/ic-back.svg';
 
 type Props = {

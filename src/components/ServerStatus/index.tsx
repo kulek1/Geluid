@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import cs from 'classnames';
 import styles from './styles.module.scss';
 import { EN_INITIALIZATION, EN_ERROR, EN_RUNNING } from 'translations/status';
-import { ServerDefaultState } from 'reducers/server';
+import { ServerDefaultState } from 'store/server/reducer';
 
 type Props = {
   status: string;

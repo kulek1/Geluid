@@ -1,4 +1,4 @@
-import { OPEN_SETTINGS, CLOSE_SETTINGS } from 'actions/actionTypes';
+import { OPEN_SETTINGS, CLOSE_SETTINGS } from 'store/app/types';
 
 type actionType = {
   type: string;
