@@ -59,7 +59,7 @@ Windows users might have something like "Stereo mix" in an audio control panel w
   - add types
   - replace `CSS Modules` with `Styled-components`
   - reorganize app structure
-  - use absolute imports
+  - use absolute imports ✅
 - Add tests
 - Improve stability
 - Make production build for Windows & Mac
