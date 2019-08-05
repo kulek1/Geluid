@@ -99,5 +99,10 @@
     "directories": {
       "buildResources": "assets"
     }
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx}": [
+      "eslint"
+    ]
   }
 }
