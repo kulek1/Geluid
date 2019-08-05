@@ -3,10 +3,11 @@ import PropTypes from 'prop-types';
 import { Provider } from 'react-redux';
 import { ConnectedRouter } from 'connected-react-router';
 import Routes from 'routes';
+import { History } from 'history';
 
 type Props = {
   store: any;
-  history: any;
+  history: History;
 };
 
 const Root = ({ store, history }: Props) => (
