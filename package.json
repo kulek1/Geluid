@@ -42,6 +42,7 @@
     "cra:build": "rescripts build",
     "cra:eject": "react-scripts eject",
     "test": "rescripts test",
+    "lint": "eslint './src/**/*.{js,jsx,ts,tsx}'",
     "postinstall": "electron-builder install-app-deps",
     "preelectron-pack": "yarn build",
     "electron-pack": "build -mw",
@@ -68,6 +69,8 @@
     "concurrently": "^4.1.1",
     "electron": "^6.0.0",
     "electron-builder": "^21.2.0",
+    "husky": "^3.0.2",
+    "lint-staged": "^9.2.1",
     "node-sass": "^4.12.0",
     "typescript": "^3.5.3",
     "wait-on": "^3.3.0"
