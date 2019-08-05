@@ -1,4 +1,3 @@
-// @flow
 import {
   SET_STATUS,
   SET_IP_ADDRESS,

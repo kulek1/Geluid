@@ -1,4 +1,3 @@
-// @flow
 import React from 'react';
 import ActiveListeners from '../../components/ActiveListeners';
 import ServerStatus from '../../components/ServerStatus';
