@@ -28,6 +28,8 @@ class ActiveListeners extends Component<Props> {
     isTransitionEnd: false,
     previousListeners: 0
   };
+  numberContainer = React.createRef<HTMLDivElement>();
+  checkIsAnimatingThrottle = _throttle(() => this.checkIsAnimating(), 2000);
 
   componentDidUpdate() {
     const { previousListeners } = this.state;
@@ -37,10 +39,6 @@ class ActiveListeners extends Component<Props> {
 
     this.checkIsAnimatingThrottle();
   }
-
-  numberContainer = React.createRef<HTMLDivElement>();
-
-  checkIsAnimatingThrottle = _throttle(() => this.checkIsAnimating(), 2000);
 
   checkIsAnimating() {
     const { isAnimating } = this.state;
@@ -97,12 +95,7 @@ class ActiveListeners extends Component<Props> {
     });
 
   render() {
-    const {
-      isAnimating,
-      isTransitionEnd,
-      firstNumber,
-      secondNumber
-    } = this.state;
+    const { isTransitionEnd, firstNumber, secondNumber } = this.state;
     const { openSettings } = this.props;
 
     return (
