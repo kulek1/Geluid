@@ -77,6 +77,11 @@
     "email": "todo@todo.com",
     "url": "https://github.com/kulek1/Geluid/"
   },
+  "devEngines": {
+    "node": ">=7.x <10.0.0",
+    "npm": ">=5.x",
+    "yarn": ">=1.0"
+  },
   "build": {
     "appId": "com.mk.geluid",
     "productName": "Geluid",
