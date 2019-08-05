@@ -1,68 +1,81 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<div align="center">
+  <h1>Geluid</h1>
 
-## Available Scripts
+  <img src="https://img.shields.io/github/issues/kulek1/geluid.svg?style=flat-square" />
+  <img src="https://img.shields.io/david/dev/kulek1/geluid.svg?style=flat-square" />
+  <img src="https://img.shields.io/github/license/kulek1/geluid.svg?color=%2344cc12%3B&style=flat-square" />
+  <img src="https://img.shields.io/github/package-json/v/kulek1/geluid.svg?style=flat-square" />
+  <img src="https://img.shields.io/github/package-json/dependency-version/kulek1/geluid/react.svg?style=flat-square" />
+  <br/>
+  <img src="https://raw.githubusercontent.com/kulek1/readmeimages/master/geluid.png" style="max-width: 650px"/>
+  <h3>Low latency streaming audio from soundcard directly to the browser.</h3>
+  <p>Use on any desktop or mobile device.</p>
+</div>
 
-In the project directory, you can run:
+<br/>
 
-### `npm start`
+Application based on `Electron`, `React`, `React-Router`, `Webpack`, `Socket.io (WebSockets)`, `PortAudio` and `Lame`.
+It combines advantages of those packages to create a nice looking application.
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Usage
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+> :warning: This application is still under development and it's not a stable version.
 
-### `npm test`
+### Developing
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Build the client web app:
 
-### `npm run build`
+```
+yarn build-client
+```
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Then build Electron app:
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+```
+yarn dev
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+It will run Electron application and browser client (React) on two different ports.
 
-### `npm run eject`
+Client: (http://localhost:9000)
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## How it works?
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+<div align="center">
+  <img src="https://raw.githubusercontent.com/kulek1/readmeimages/master/geluid-how-it-works.png" />
+</div>
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+It creates two instances of applications - client & server.
+Server is based on `Electron` also with `React` and uses `node module (C++)` called `naudiodon-lame` to stream mp3 audio from soundcard to `Node.js` app and then from `Node.js` to Browser via `WebSocket` (Socket.io).
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+Client is based on React and it uses `WebWorkers` for buffering audio to get low latency sound.
+Despite complicated steps, latency of audio is at the level of ~1 second!
 
-## Learn More
+Windows users might have something like "Stereo mix" in an audio control panel which picks up exactly what you hear from your speakers. Unfortunately, that device isn't available in macOS out of the box. The solution is to install open source kernel extension called [Soundflower](https://rogueamoeba.com/freebies/soundflower/)
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Features to do:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- Code refactoring
+- Add tests
+- Improve stability
+- Make production build for Windows & Mac
+- Improve scalability
+- Update Babel 6 to 7
+- Replace `Flow` with `Typescript`
+- Add missing features...
 
-### Code Splitting
+## Issues
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+- You may encounter an error:
 
-### Analyzing the Bundle Size
+```
+App threw an error during load
+Error: The module '/Users/username/Geluid/node_modules/naudiodon-lame/build/Release/naudiodon-lame.node'
+was compiled against a different Node.js version using
+NODE_MODULE_VERSION 59. This version of Node.js requires
+NODE_MODULE_VERSION 57. Please try re-compiling or re-installing
+```
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+To resolve this, run in your terminal: `$(npm bin)/electron-rebuild`.
 
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+- as this application uses `MediaSource`, iOS isn't supported yet. (Why Apple?)
