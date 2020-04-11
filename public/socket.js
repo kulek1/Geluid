@@ -2,7 +2,8 @@
 
 const app = require('express')();
 const ss = require('socket.io-stream');
-const portAudio = require('naudiodon-lame');
+const portAudio = require('naudiodon');
+const lame = require('@suldashi/lame');
 const http = require('http').createServer(app);
 const io = require('socket.io')(http);
 
@@ -11,6 +12,7 @@ const EN_RUNNING = 'Running';
 
 let audioDeviceId = -1;
 let audioInstance = null;
+let encoderInstance = null;
 
 const MAX_CLIENTS = 5;
 
@@ -25,19 +27,35 @@ function setAudioDevice(id) {
 }
 
 function initAudioInstance() {
-  if (audioInstance) return;
-  audioInstance = new portAudio.AudioInput({
-    channelCount: 2,
-    sampleFormat: portAudio.SampleFormat16Bit,
+  if (audioInstance) {
+    return;
+  };
+  audioInstance = new portAudio.AudioIO({
+    inOptions: {
+      channelCount: 1,
+      sampleFormat: portAudio.SampleFormat16Bit,
+      sampleRate: 44100,
+      deviceId: audioDeviceId,
+      closeOnError: true // Close the stream if an audio error is detected, if set false then just log the error
+    }
+  });
+
+   encoderInstance = new lame.Encoder({
+    // input
+    channels: 2,
+    bitDepth: 16,
     sampleRate: 44100,
-    deviceId: audioDeviceId, // Use -1 or omit the deviceId to select the default device,
+    // output
     bitRate: 128,
-    lameQuality: 5
+    outSampleRate: 44100,
+    mode: lame.STEREO
   });
 }
 
 function disableAudioInstance() {
-  if (!audioInstance) return;
+  if (!audioInstance) {
+    return;
+  };
   audioInstance.quit();
   audioInstance = null;
 }
@@ -46,9 +64,13 @@ function startAudioStreaming(stream) {
   // handle errors from the AudioInput
   audioInstance.on('error', err => console.error(err));
 
-  // Start streaming
-  audioInstance.pipe(stream);
+  // start encoding
+  process.stdin.pipe(encoderInstance);
+  audioInstance.pipe(encoderInstance);
   audioInstance.start();
+
+  // Start streaming
+  encoderInstance.pipe(stream);
 }
 
 function initSocketServer() {
@@ -59,21 +81,26 @@ function initSocketServer() {
   } = require('./electron');
   let isPlaying = false;
 
-  http.on('error', () => setTimeout(() => setServerStatus(EN_ERROR), 1500));
-  http.listen(3010, () => console.log('listening on *:3010'));
+  if (!http.listening) {
+    http.on('error', () => setTimeout(() => setServerStatus(EN_ERROR), 1500));
+    http.listen(3010, () => console.log('listening on *:3010'));
+  }
+
   setTimeout(() => setServerStatus(EN_RUNNING), 1500);
   setServerAudioDevices(portAudio.getDevices());
 
   io.on('connection', socket => {
-    if (isPlaying) socket.disconnect();
+    if (isPlaying) {
+      socket.disconnect();
+    }
 
     updateListenersCounter(); // User has been connected
-    console.log('-> User has been connected');
+    console.log('[NEW USER] -> User has been connected');
     let currentRoom = 'default';
     initAudioInstance();
 
     socket.on('disconnect', () => {
-      console.log('disconnect');
+      console.log('[DISCONNECT]');
       updateListenersCounter();
       disableAudioInstance();
       isPlaying = false;

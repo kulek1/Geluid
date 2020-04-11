@@ -5,6 +5,7 @@
   "main": "public/electron.js",
   "homepage": "./",
   "dependencies": {
+    "@suldashi/lame": "^1.2.5",
     "@types/classnames": "^2.2.9",
     "@types/jest": "^24.0.16",
     "@types/lodash": "^4.14.136",
@@ -20,7 +21,7 @@
     "electron-is-dev": "^1.1.0",
     "history": "^4.9.0",
     "lodash": "^4.17.15",
-    "naudiodon-lame": "^0.5.1",
+    "naudiodon": "^2.1.2",
     "prop-types": "^15.7.2",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
