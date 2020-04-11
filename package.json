@@ -78,7 +78,7 @@
     "url": "https://github.com/kulek1/Geluid/"
   },
   "devEngines": {
-    "node": ">=7.x <10.0.0",
+    "node": ">=10.x",
     "npm": ">=5.x",
     "yarn": ">=1.0"
   },
