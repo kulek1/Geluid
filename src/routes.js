@@ -1,4 +1,3 @@
-/* eslint flowtype-errors/show-errors: 0 */
 import React from 'react';
 import { Switch, Route, BrowserRouter } from 'react-router-dom';
 import HomePage from './containers/HomePage';
