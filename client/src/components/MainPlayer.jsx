@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Slider from 'rc-slider';
+import silenceMp3 from '../assets/silence.mp3'
 
 class MainPlayer extends Component {
   constructor(props) {
@@ -85,6 +86,8 @@ class MainPlayer extends Component {
 
   render() {
     return (
+      <>
+      <iframe title="silence" src={silenceMp3} allow="autoplay" id="audio" className="audio-context-hack"></iframe>
       <div className="audio-player">
         <div className="audio-player__play-btn">
           <svg xmlns="http://www.w3.org/2000/svg" width="18" height="24" viewBox="0 0 18 24">
@@ -126,9 +129,10 @@ class MainPlayer extends Component {
           </div>
         </div>
         {/* eslint-disable jsx-a11y/media-has-caption */}
-        <audio type="audio/mpeg" id="audio-tag" ref={(el) => { this.player = el; }} />
+        <audio type="audio/mpeg" id="audio-tag" ref={(el) => { this.player = el; }} autoPlay />
         {/* eslint-disable */}
       </div>
+      </>
     );
   }
 }

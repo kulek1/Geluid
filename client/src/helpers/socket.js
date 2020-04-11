@@ -22,7 +22,7 @@ class Socket {
     this.codecString = 'audio/mpeg';
     this.audio = null;
     this.mediaSource = null;
-    this.tagBuffer = [];
+    this.mediaSourceBuffer = [];
     this.tagQueue = [];
     this.isCustomBuffer = false;
     this.unlockMobileSafari();
@@ -34,24 +34,26 @@ class Socket {
     this.audio.src = window.URL.createObjectURL(this.mediaSource);
 
     this.mediaSource.addEventListener('sourceopen', () => {
-      this.tagBuffer = this.mediaSource.addSourceBuffer(this.codecString);
-      this.tagBuffer.mode = 'sequence';
+      this.mediaSourceBuffer = this.mediaSource.addSourceBuffer(this.codecString);
+      this.mediaSourceBuffer.mode = 'sequence';
 
-      this.tagBuffer.addEventListener('updateend', () => this.playAudio(), { once: true });
+      this.mediaSourceBuffer.addEventListener('updateend', () => this.playAudio(), { once: true });
     });
   }
 
   playAudio() {
     const isSafari = navigator.vendor && navigator.vendor.indexOf('Apple') > -1
                     && navigator.userAgent && !navigator.userAgent.match('CriOS');
-    if (!isSafari) this.audio.play();
+    if (!isSafari) {
+      this.audio.play();
+    }
   }
 
   async updateBuffer(chunk) {
-    if (!this.tagBuffer.updating && this.tagQueue.length > 0) {
-      this.tagBuffer.appendBuffer(this.tagQueue.shift());
-    } else if (!this.tagBuffer.updating) {
-      this.tagBuffer.appendBuffer(chunk);
+    if (!this.mediaSourceBuffer.updating && this.tagQueue.length > 0) {
+      this.mediaSourceBuffer.appendBuffer(this.tagQueue.shift());
+    } else if (!this.mediaSourceBuffer.updating) {
+      this.mediaSourceBuffer.appendBuffer(chunk);
     } else {
       this.tagQueue.push(chunk);
     }
