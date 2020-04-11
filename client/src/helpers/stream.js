@@ -171,4 +171,4 @@ class Stream {
   }
 }
 
-export default new Stream();
+export default Stream;
