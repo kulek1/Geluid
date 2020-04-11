@@ -1,5 +1,5 @@
 import openSocket from 'socket.io-client';
-import DecoderWorker from '../workers/decoder.worker';
+import DecoderWorker from 'workerize-loader!../workers/decoder.worker'; // eslint-disable-line import/no-webpack-loader-syntax
 
 const ss = require('socket.io-stream');
 require('webrtc-adapter');
@@ -58,7 +58,11 @@ class Socket {
   }
 
   initWorkerEvent() {
-    decoder.onmessage = async ({ data }) => this.updateBuffer(data.bufferMp3);
+    decoder.onmessage = async ({ data }) => {
+      if (data.bufferMp3) {
+        this.updateBuffer(data.bufferMp3)
+      }
+    };
   }
 
   bindSockets() {
@@ -149,4 +153,4 @@ class Socket {
   }
 }
 
-export default new Socket();
+export default Socket;
