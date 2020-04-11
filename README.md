@@ -46,7 +46,7 @@ Client: (http://localhost:9000)
 </div>
 
 It creates two instances of applications - client & server.
-Server is based on `Electron` also with `React` and uses `node module (C++)` called `naudiodon-lame` to stream mp3 audio from soundcard to `Node.js` app and then from `Node.js` to Browser via `WebSocket` (Socket.io).
+Server is based on `Electron` also with `React` and uses `node module (C++)` called `naudiodon` to stream raw audio from soundcard to `Node.js` app, encode it to mp3 format and then using `Stream.io` to the browser via `WebSocket` (Socket.io).
 
 Client is based on React and it uses `WebWorkers` for buffering audio to get low latency sound.
 Despite complicated steps, latency of audio is at the level of ~1 second!
@@ -77,7 +77,7 @@ Windows users might have something like "Stereo mix" in an audio control panel w
 
 ```
 App threw an error during load
-Error: The module '/Users/username/Geluid/node_modules/naudiodon-lame/build/Release/naudiodon-lame.node'
+Error: The module '/Users/username/Geluid/node_modules/naudiodon/build/Release/naudiodon.node'
 was compiled against a different Node.js version using
 NODE_MODULE_VERSION 59. This version of Node.js requires
 NODE_MODULE_VERSION 57. Please try re-compiling or re-installing
