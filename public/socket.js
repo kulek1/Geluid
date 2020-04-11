@@ -1,4 +1,4 @@
-/* eslint global-require: 0, flowtype-errors/show-errors: 0 */
+/* eslint global-require: 0  */
 
 const app = require('express')();
 const ss = require('socket.io-stream');
